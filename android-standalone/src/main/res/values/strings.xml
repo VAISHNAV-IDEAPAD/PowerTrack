@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PowerTrack</string>
+    <string name="service_name">PowerTrack Location Tracking</string>
+    <string name="notification_title">PowerTrack Tracking Active</string>
+    <string name="notification_desc">Continuous background location monitoring is active</string>
+    <string name="channel_name">Location Monitoring</string>
+    <string name="channel_desc">Active persistent tracking notifications</string>
+    <string name="battery_channel_name">Emergency Battery Alerts</string>
+    <string name="battery_channel_desc">Alerts when battery reaches 10%</string>
+</resources>

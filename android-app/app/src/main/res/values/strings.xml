@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">PowerTrack</string>
+    <string name="notification_channel_name">Location Tracking</string>
+    <string name="notification_channel_desc">Active foreground notification for ongoing device location tracking</string>
+    <string name="notification_title">PowerTrack Active</string>
+    <string name="notification_text">Ongoing location tracking is running in the background</string>
+    <string name="battery_notification_channel">Battery Alerts</string>
+    <string name="battery_notification_desc">Low battery emergency location trigger notifications</string>
+</resources>
