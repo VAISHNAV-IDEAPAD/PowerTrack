@@ -10,6 +10,9 @@ const deviceRoutes = require('./routes/deviceRoutes');
 
 const app = express();
 
+// Trust reverse proxy / tunnel headers (Cloudflare, Render, etc.)
+app.set('trust proxy', 1);
+
 // Security HTTP headers (configured to allow Leaflet CDN and tiles)
 app.use(
   helmet({

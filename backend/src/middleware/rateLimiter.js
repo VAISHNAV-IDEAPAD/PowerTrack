@@ -6,6 +6,7 @@ const generalLimiter = rateLimit({
   max: config.rateLimit.max,
   standardHeaders: true,
   legacyHeaders: false,
+  validate: { xForwardedForHeader: false },
   message: {
     error: 'Too many requests from this IP address. Please try again later.'
   }
@@ -16,6 +17,7 @@ const authLimiter = rateLimit({
   max: 30, // 30 requests per 15 mins for login/register
   standardHeaders: true,
   legacyHeaders: false,
+  validate: { xForwardedForHeader: false },
   message: {
     error: 'Too many authentication attempts. Please try again after 15 minutes.'
   }
