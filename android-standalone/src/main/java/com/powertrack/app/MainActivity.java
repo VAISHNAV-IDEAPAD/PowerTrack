@@ -36,7 +36,7 @@ import java.util.UUID;
 
 public class MainActivity extends Activity implements LocationListener {
 
-    public static final String DEFAULT_SERVER_URL = "http://192.168.31.19:5000";
+    public static final String DEFAULT_SERVER_URL = "https://assured-entirely-density-processor.trycloudflare.com";
 
     public static String cleanUrl(String input) {
         if (input == null) return DEFAULT_SERVER_URL;
@@ -105,7 +105,7 @@ public class MainActivity extends Activity implements LocationListener {
         tvLog = findViewById(R.id.tvLog);
 
         String savedServer = prefs.getString("server_url", DEFAULT_SERVER_URL);
-        if (savedServer.contains("10.0.2.2") || savedServer.trim().isEmpty()) {
+        if (savedServer.contains("10.0.2.2") || savedServer.contains("192.168.") || savedServer.trim().isEmpty()) {
             savedServer = DEFAULT_SERVER_URL;
             prefs.edit().putString("server_url", savedServer).apply();
         }

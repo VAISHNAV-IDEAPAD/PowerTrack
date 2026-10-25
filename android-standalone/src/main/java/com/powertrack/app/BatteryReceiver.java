@@ -59,7 +59,7 @@ public class BatteryReceiver extends BroadcastReceiver {
             if (bestLoc != null) {
                 String eventId = UUID.randomUUID().toString();
                 String deviceId = prefs.getString("device_id", "android-device");
-                String baseUrl = prefs.getString("server_url", "http://192.168.31.19:5000");
+                String baseUrl = prefs.getString("server_url", "https://assured-entirely-density-processor.trycloudflare.com");
                 String token = prefs.getString("jwt_token", null);
 
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.US);

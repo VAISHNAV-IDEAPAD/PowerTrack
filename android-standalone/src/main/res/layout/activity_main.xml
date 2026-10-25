@@ -104,7 +104,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="http://192.168.31.19:5000"
+                    android:hint="https://assured-entirely-density-processor.trycloudflare.com"
                     android:textSize="13sp"
                     android:singleLine="true" />
 
