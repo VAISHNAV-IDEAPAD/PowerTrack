@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, Circle, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, Circle, useMap, LayersControl } from 'react-leaflet';
 import L from 'leaflet';
 import { AlertTriangle, Clock, Battery, Crosshair } from 'lucide-react';
 
@@ -107,11 +107,34 @@ export default function MapViewer({ latestLocation, historyLocations = [], isSta
         >
           <ChangeMapView center={centerPos} zoom={16} />
 
-          {/* OpenStreetMap Tile Layer (Free, no API key needed) */}
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
+          {/* Map Layer Switcher: CARTO Voyager (Default - Zero 403 blocks), Esri Satellite, and CARTO Positron */}
+          <LayersControl position="topright">
+            <LayersControl.BaseLayer checked name="Street Map (CARTO Voyager)">
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+                url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+                subdomains="abcd"
+                maxZoom={20}
+              />
+            </LayersControl.BaseLayer>
+
+            <LayersControl.BaseLayer name="Satellite (Esri World Imagery)">
+              <TileLayer
+                attribution="Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and GIS User Community"
+                url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+                maxZoom={19}
+              />
+            </LayersControl.BaseLayer>
+
+            <LayersControl.BaseLayer name="Clean Light (CARTO Positron)">
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+                url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+                subdomains="abcd"
+                maxZoom={20}
+              />
+            </LayersControl.BaseLayer>
+          </LayersControl>
 
           {/* Accuracy Confidence Circle */}
           <Circle
