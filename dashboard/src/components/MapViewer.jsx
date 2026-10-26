@@ -107,18 +107,17 @@ export default function MapViewer({ latestLocation, historyLocations = [], isSta
         >
           <ChangeMapView center={centerPos} zoom={16} />
 
-          {/* Map Layer Switcher: CARTO Voyager (Default - Zero 403 blocks), Esri Satellite, and CARTO Positron */}
+          {/* Map Layer Switcher: Esri World Street Map (Default - No API key, No watermarks), Satellite, and Topo */}
           <LayersControl position="topright">
-            <LayersControl.BaseLayer checked name="Street Map (CARTO Voyager)">
+            <LayersControl.BaseLayer checked name="Street Map (High Detail)">
               <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-                url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
-                subdomains="abcd"
-                maxZoom={20}
+                attribution="Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom"
+                url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
+                maxZoom={19}
               />
             </LayersControl.BaseLayer>
 
-            <LayersControl.BaseLayer name="Satellite (Esri World Imagery)">
+            <LayersControl.BaseLayer name="Satellite Imagery">
               <TileLayer
                 attribution="Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and GIS User Community"
                 url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
@@ -126,12 +125,19 @@ export default function MapViewer({ latestLocation, historyLocations = [], isSta
               />
             </LayersControl.BaseLayer>
 
-            <LayersControl.BaseLayer name="Clean Light (CARTO Positron)">
+            <LayersControl.BaseLayer name="Topographic Map">
               <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-                url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-                subdomains="abcd"
-                maxZoom={20}
+                attribution="Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and GIS User Community"
+                url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}"
+                maxZoom={19}
+              />
+            </LayersControl.BaseLayer>
+
+            <LayersControl.BaseLayer name="OpenStreetMap">
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png"
+                maxZoom={19}
               />
             </LayersControl.BaseLayer>
           </LayersControl>
